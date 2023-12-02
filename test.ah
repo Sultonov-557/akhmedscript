@@ -1,0 +1,3 @@
+o'zgarmas o'zgaruvchi text teng "hello world"
+
+consl.log(text)

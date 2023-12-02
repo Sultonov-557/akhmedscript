@@ -1,0 +1,8 @@
+{
+	"name": "akhmed",
+	"version": "1.0.0",
+	"license": "ISC",
+	"bin": {
+		"akhmed": "./src/index.js"
+	}
+}
