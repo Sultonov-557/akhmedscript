@@ -1,0 +1,47 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "akhmedScript",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.akhmed",
+					"match": "\\b(if|while|for|return)\\b"
+				},
+				{ "name": "variable.other.constant", "match": "\\b(o'zgarmas o'zgaruvchi)\\b" },
+				{ "name": "variable.other", "match": "\\b(o'zgaruvchan o'zgaruvchi)\\b" },
+				{
+					"name": "keyword.operator",
+					"match": "\\b(plusteng|minusteng|plus|minus|ko'paytiruv|bo'luv)\\b"
+				},
+				{ "name": "keyword.operator.new", "match": "teng" },
+				{
+					"name": "variable.name",
+					"begin": "o'zgaruvchi",
+					"end": "teng"
+				},
+				{ "name": "number", "match": "\\b(1|2|3|4|5|6|7|8|9|0)\\b" }
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.akhmed",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.akhmed",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.akhmed"
+}

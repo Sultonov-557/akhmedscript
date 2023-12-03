@@ -1,3 +1,7 @@
-o'zgarmas o'zgaruvchi text teng "hello world"
+o'zgaruvchan o'zgaruvchi text teng "hello world"
 
-consl.log(text)
+text teng "wats up teng "
+
+o'zgarmas o'zgaruvchi count teng 5 ko'paytiruv 5
+
+consl.log(text.repeat(count))

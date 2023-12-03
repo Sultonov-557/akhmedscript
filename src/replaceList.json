@@ -1,0 +1,12 @@
+{
+	"o'zgarmas o'zgaruvchi": "const",
+	"o'zgaruvchan o'zgaruvchi": "let",
+	"teng": "=",
+	"plus": "=",
+	"minus": "=",
+	"ko'paytiruv": "*",
+	"bo'luv": "/",
+	"consl": "console",
+	"yangi": "new",
+	"avayit": "await"
+}
