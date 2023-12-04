@@ -1,8 +1,6 @@
 const replaceList = require("./replaceList.json");
 
 function convertCode(code) {
-	code = code.replace(/  /g, "");
-
 	code = code.split(`"`);
 
 	for (let i in code) {
@@ -19,6 +17,8 @@ function convertCode(code) {
 	}
 
 	code = code.join(`"`);
+	code = "(async ()=>{" + code + "})()";
+
 	return code;
 }
 

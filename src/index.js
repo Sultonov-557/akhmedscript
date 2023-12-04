@@ -31,7 +31,6 @@ function runCode() {
 		eval(code);
 	} catch (e) {
 		let text = e.message;
-
 		console.error(`Error: ${parseError(text)}`);
 	}
 }
