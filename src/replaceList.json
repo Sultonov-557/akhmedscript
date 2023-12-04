@@ -7,6 +7,8 @@
 	"ko'paytiruv": "*",
 	"bo'luv": "/",
 	"consl": "console",
-	"yangi": "new",
-	"avayit": "await"
+	"tozo": "new",
+	"avayt": "await",
+ "shu":"async",
+ "funksiya":"function"
 }
