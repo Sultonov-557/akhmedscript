@@ -1,7 +1,7 @@
 shu funksiya start() {
     o'zgaruvchan o'zgaruvchi text teng "hello world"
 
-    text teng "wats up "
+    text = "wats up "
 
     o'zgarmas o'zgaruvchi count teng 5 ko'paytiruv 5
 

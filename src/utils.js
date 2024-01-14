@@ -1,49 +1,57 @@
 const replaceList = require("./replaceList.json");
 
-function convertCode(code) {
-	code = code.split(`"`);
+function convertCode(string) {
+  const lines = string.split("\r\n");
+  for (let codeI in lines) {
+    let code = lines[codeI].split(`"`);
 
-	for (let i in code) {
-		if (i % 2 == 0) {
-			for (let key in replaceList) {
-				const value = replaceList[key];
-				if (code[i].includes(value)) {
-					throw new Error(`wtf is ${value}`);
-				}
+    for (let i in code) {
+      if (i % 2 == 0) {
+        for (let key in replaceList) {
+          const value = replaceList[key];
+          if (code[i].includes(value)) {
+            throw new Error(`${value} mas ${key} bo'lodi \nqator: ${codeI + 1}`);
+          }
 
-				code[i] = code[i].replaceAll(key, value);
-			}
-		}
-	}
+          code[i] = code[i].replaceAll(key, value);
+        }
+      }
+    }
+    code = code.join(`"`);
+    lines[codeI] = code;
+  }
+  string = lines.join(`\n`);
+  string = "(async ()=>{" + string + "})()";
 
-	code = code.join(`"`);
-	code = "(async ()=>{" + code + "})()";
-
-	return code;
+  return string;
 }
 
 function parseError(text) {
-	let out;
+  let out;
 
-	let match = text.match(/(.*) is not defined/);
-	if (match) {
-		out = `there is no ${match[1]}`;
-	}
+  let match = text.match(/(.*) is not defined/);
+  if (match) {
+    out = `there is no ${match[1]}`;
+  }
 
-	if (text == "Unexpected string") {
-		out = "sintaxsis error";
-	}
+  if (text == 'Error: The "path" argument must be of type string or an instance of Buffer or URL. Received undefined') {
+    out = "file 404";
+  }
 
-	if (text == "Assignment to constant variable.") {
-		out =
-			"o'zgarmas o'zgaruvchini o'zgartirish munkin emas o'zgarmas o'zgaruvchini o'rgaruvchini o'zgaruvchan o'zgaruvchiga aylantiring";
-	}
+  if (text == "Unexpected string") {
+    out = "sintaxsis error";
+  }
 
-	if (!out) {
-		out = text;
-	}
+  if (text == "Assignment to constant variable.") {
+    out =
+      "o'zgarmas o'zgaruvchini o'zgartirish munkin emas o'zgarmas o'zgaruvchini o'rgaruvchini o'zgaruvchan o'zgaruvchiga aylantiring";
+  }
 
-	return out;
+  if (!out) {
+    out = text;
+  }
+
+  return out;
 }
 
 module.exports = { convertCode, parseError };
